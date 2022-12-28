@@ -20,7 +20,7 @@
 <h2 id="total-user-count">
     나는 너무 대단해
 </h2>
-이름:<input type="text" id="name-text">
+이름:<input type="text" id="name-input">
 닉네임:<input type="text" id="nick-text">
 <button id="create-btn">
     추가
@@ -43,7 +43,10 @@
     const pageDiv = document.getElementById('page-div')
     const totalUserCountDiv = document.getElementById('total-user-count')
     const currentPage = document.getElementById('current-page')
+    const nameInput = document.getElementById('name-input')
     let lastPage
+
+
     async function getList(page) {
         let url = baseUrl
         if (page) {
@@ -74,13 +77,46 @@
                         `
                     }
                 }
+                nameInput.focus()
             })
     }
 
+    function createUser() {
+        console.log(document.getElementById('name-input').value)
+        fetch(baseUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                name: document.getElementById('name-input').value,
+                nickName: document.getElementById('nick-text').value,
+            })
+        }).then(res => {
+            if (res.status === 200 || res.status === 201) {
+                console.log(res)
+                getList(currentPage.value)
+                nameInput.focus()
+            } else if (res.status === 409) {
+                throw new Error('이미 존재하는 닉네임 입니다.');
+            } else {
+                console.log(res)
+                throw new Error('알수없는 에러')
+            }
+        })
+            .catch(e => {
+                alert(e)
+            })
+    }
+
+
     document.addEventListener('DOMContentLoaded', () => {
-
+        nameInput.focus()
         getList()
-
+        document.body.addEventListener('keypress',e=>{
+            if(e.key === 'Enter') createUser()
+        })
         document.getElementById('go-first-page').addEventListener('click', () => {
             getList()
         })
@@ -88,30 +124,7 @@
             getList(lastPage)
         })
         document.getElementById('create-btn').addEventListener('click', () => {
-            fetch(baseUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: document.getElementById('name-text').value,
-                    nickName: document.getElementById('nick-text').value,
-                })
-            }).then(res => {
-                if (res.status === 200 || res.status === 201) {
-                    console.log(res)
-                    getList()
-                } else if (res.status === 409) {
-                    throw new Error('이미 존재하는 아이디');
-                } else {
-                    console.log(res)
-                    throw new Error('알수없는 에러')
-                }
-            })
-                .catch(e => {
-                    alert(e)
-                })
+            createUser()
         })
     })
 </script>

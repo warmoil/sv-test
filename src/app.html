@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="%sveltekit.assets%/favicon.png"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>스벨트</title>
+    %sveltekit.head%
+</head>
+<body data-sveltekit-preload-data="hover">
+<!--		<h1>%sveltekit.body%</h1>-->
+<style>
+    table {
+        width: 50%;
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+</style>
+<h2 id="total-user-count">
+    나는 너무 대단해
+</h2>
+이름:<input type="text" id="name-text">
+닉네임:<input type="text" id="nick-text">
+<button id="create-btn">
+    추가
+</button>
+<table border="1" id="userList">
+    <th>idx</th>
+    <th>name</th>
+    <th>nickName</th>
+    <tbody id="tBody">
+    </tbody>
+</table>
+<button id="go-first-page">처음으로</button>
+<button id="go-last-page">끝으로</button>
+<div id="page-div"></div>
+<input type="hidden" id="current-page" value=1>
+
+<script>
+    const tBody = document.getElementById('tBody')
+    const baseUrl = 'http://localhost:8080/user'
+    const pageDiv = document.getElementById('page-div')
+    const totalUserCountDiv = document.getElementById('total-user-count')
+    const currentPage = document.getElementById('current-page')
+    let lastPage
+    async function getList(page) {
+        let url = baseUrl
+        if (page) {
+            url += `?page=${page}`
+        }
+        await fetch(url).then(res => res.json())
+            .then(json => {
+                const data = json
+                tBody.innerHTML = ''
+                data.results.forEach(j => {
+                    tBody.innerHTML += `
+                            <tr>
+                            <td>${j.idx}</td>
+                            <td>${j.name}</td>
+                            <td>${j.nickName}</td>
+                            </tr>
+                        `;
+                });
+                totalUserCountDiv.innerHTML = '총 '+data.totalCount +'명'
+                currentPage.value = data.currentPage + 1
+                pageDiv.innerHTML = ``;
+                lastPage = data.totalPage
+                const totalPage = data.totalPage
+                if (totalPage > 1) {
+                    for (let i = 1; i <= totalPage; i++) {
+                        pageDiv.innerHTML += `
+                            <button ${i === Number(currentPage.value) ? 'disabled style="color: red"' : ''}  onclick="getList(${i})">${i}</button>
+                        `
+                    }
+                }
+            })
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        getList()
+
+        document.getElementById('go-first-page').addEventListener('click', () => {
+            getList()
+        })
+        document.getElementById('go-last-page').addEventListener('click', () => {
+            getList(lastPage)
+        })
+        document.getElementById('create-btn').addEventListener('click', () => {
+            fetch(baseUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: document.getElementById('name-text').value,
+                    nickName: document.getElementById('nick-text').value,
+                })
+            }).then(res => {
+                if (res.status === 200 || res.status === 201) {
+                    console.log(res)
+                    getList()
+                } else if (res.status === 409) {
+                    throw new Error('이미 존재하는 아이디');
+                } else {
+                    console.log(res)
+                    throw new Error('알수없는 에러')
+                }
+            })
+                .catch(e => {
+                    alert(e)
+                })
+        })
+    })
+</script>
+</body>
+</html>

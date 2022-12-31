@@ -18,7 +18,7 @@
     }
 </style>
 <h2 id="total-user-count">
-    나는 너무 대단해
+    나는 너무 대단해 홀리 몰리
 </h2>
 이름:<input type="text" id="name-input">
 닉네임:<input type="text" id="nick-text">
@@ -44,6 +44,7 @@
     const totalUserCountDiv = document.getElementById('total-user-count')
     const currentPage = document.getElementById('current-page')
     const nameInput = document.getElementById('name-input')
+    const nickNameInput = document.getElementById('nick-text')
     let lastPage
 
 
@@ -54,9 +55,9 @@
         }
         await fetch(url).then(res => res.json())
             .then(json => {
-                const data = json
+                // const json = json
                 tBody.innerHTML = ''
-                data.results.forEach(j => {
+                json.results.forEach(j => {
                     tBody.innerHTML += `
                             <tr>
                             <td>${j.idx}</td>
@@ -65,11 +66,11 @@
                             </tr>
                         `;
                 });
-                totalUserCountDiv.innerHTML = '총 '+data.totalCount +'명'
-                currentPage.value = data.currentPage + 1
+                totalUserCountDiv.innerHTML = '총 ' + json.totalCount + '명'
+                currentPage.value = json.currentPage + 1
                 pageDiv.innerHTML = ``;
-                lastPage = data.totalPage
-                const totalPage = data.totalPage
+                lastPage = json.totalPage
+                const totalPage = json.totalPage
                 if (totalPage > 1) {
                     for (let i = 1; i <= totalPage; i++) {
                         pageDiv.innerHTML += `
@@ -90,13 +91,15 @@
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                name: document.getElementById('name-input').value,
-                nickName: document.getElementById('nick-text').value,
+                name: document.getElementById('name-input').value.replaceAll(' ',''),
+                nickName: document.getElementById('nick-text').value.replaceAll(' ',''),
             })
         }).then(res => {
             if (res.status === 200 || res.status === 201) {
                 console.log(res)
                 getList(currentPage.value)
+                nameInput.value = ''
+                nickNameInput.value = ''
                 nameInput.focus()
             } else if (res.status === 409) {
                 throw new Error('이미 존재하는 닉네임 입니다.');
@@ -114,8 +117,8 @@
     document.addEventListener('DOMContentLoaded', () => {
         nameInput.focus()
         getList()
-        document.body.addEventListener('keypress',e=>{
-            if(e.key === 'Enter') createUser()
+        document.body.addEventListener('keypress', e => {
+            if (e.key === 'Enter') createUser()
         })
         document.getElementById('go-first-page').addEventListener('click', () => {
             getList()

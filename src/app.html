@@ -18,7 +18,7 @@
     }
 </style>
 <h2 id="total-user-count">
-    나는 너무 대단해 홀리 몰리
+    로딩중입니다.
 </h2>
 이름:<input type="text" id="name-input">
 닉네임:<input type="text" id="nick-text">
@@ -36,16 +36,26 @@
 <button id="go-last-page">끝으로</button>
 <div id="page-div"></div>
 <input type="hidden" id="current-page" value=1>
-
+<button id="issue-btn">이슈 제보</button>
 <script>
     const tBody = document.getElementById('tBody')
-    const baseUrl = 'http://localhost:8080/user'
+    const baseUrl = '/api/user'
+    // const baseUrl = '172.17.0.1:8080/user'
+    // const baseUrl = 'http://211.42.156.79:8080/user'
+    // const baseUrl = 'http://localhost:3000/user'
     const pageDiv = document.getElementById('page-div')
     const totalUserCountDiv = document.getElementById('total-user-count')
     const currentPage = document.getElementById('current-page')
     const nameInput = document.getElementById('name-input')
     const nickNameInput = document.getElementById('nick-text')
+    const issueBtn = document.getElementById('issue-btn');
     let lastPage
+
+    const issueReportAction = () =>{
+        const issue = prompt('이슈를 적어주세요 ');
+        if(issue) alert('구현이 귀찮습니다');
+        else alert('언제든지 제보해주세요!')
+    }
 
 
     async function getList(page) {
@@ -79,6 +89,9 @@
                     }
                 }
                 nameInput.focus()
+            }).catch(e=>{
+                console.log(e)
+                totalUserCountDiv.innerHTML = '로딩실패;;'
             })
     }
 
@@ -119,6 +132,9 @@
         getList()
         document.body.addEventListener('keypress', e => {
             if (e.key === 'Enter') createUser()
+        })
+        issueBtn.addEventListener('click',()=>{
+            issueReportAction();
         })
         document.getElementById('go-first-page').addEventListener('click', () => {
             getList()

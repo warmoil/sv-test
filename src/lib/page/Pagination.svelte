@@ -7,10 +7,10 @@
     const dispatch = createEventDispatcher();
 
     function btnClick(page) {
-        dispatch("move", {page});
+        dispatch("go", {page});
     }
+    // 서버에서는
 </script>
-
 
 <button on:click={()=>btnClick()}>처음으로</button>
 
@@ -18,8 +18,8 @@
     {#if page === current}
         <button disabled style="color: red">{page + 1}</button>
     {:else}
-        <button on:click={()=>btnClick(page)}>{page + 1}</button>
+        <button on:click={()=>btnClick(page+1)}>{page + 1}</button>
     {/if}
 {/each}
 
-<button on:click={()=>btnClick(total+1)}>끝으로</button>
+<button on:click={()=>btnClick(total)}>끝으로</button>

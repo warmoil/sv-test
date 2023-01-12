@@ -1,6 +1,5 @@
 <script>
     export let userPromise;
-    export let loadingBar
 </script>
 
 <table>

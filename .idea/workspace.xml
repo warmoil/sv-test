@@ -4,13 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cf15c20-fa74-4142-b5f9-039651f3c42e" name="Changes" comment="" />
+    <list default="true" id="4cf15c20-fa74-4142-b5f9-039651f3c42e" name="Changes" comment="sh 추가">
+      <change afterPath="$PROJECT_DIR$/src/lib/utils/RangeUtil.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/issue/+page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/issue/+server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/user/+page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/world/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front-toki.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/front-toki.dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pushDev.sh" beforeDir="false" afterPath="$PROJECT_DIR$/pushDev.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/page/Pagination.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/page/Pagination.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/url/URL.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/url/URL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Counter.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/Header.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/issue/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/issue/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/user/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/user/+server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/+server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/user/UserTable.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/UserTable.svelte" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="+page" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -22,21 +55,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/jeong-on-yu/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/223.7571.168/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,7 +99,53 @@
       <workItem from="1672226676152" duration="1361000" />
       <workItem from="1672228043408" duration="197000" />
       <workItem from="1672228252722" duration="572000" />
+      <workItem from="1672468586246" duration="26000" />
+      <workItem from="1672468617497" duration="30000" />
+      <workItem from="1672468653754" duration="68727000" />
     </task>
+    <task id="LOCAL-00001" summary="이름 , 닉네임 등록시 공백 제거">
+      <created>1672480159514</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1672480159514</updated>
+    </task>
+    <task id="LOCAL-00002" summary="readme 수정">
+      <created>1672487733638</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672487733638</updated>
+    </task>
+    <task id="LOCAL-00003" summary="readme 수정">
+      <created>1672487766857</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1672487766857</updated>
+    </task>
+    <task id="LOCAL-00004" summary="readme 수정">
+      <created>1672918509316</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1672918509316</updated>
+    </task>
+    <task id="LOCAL-00005" summary="base url 추가">
+      <created>1673172671260</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673172671260</updated>
+    </task>
+    <task id="LOCAL-00006" summary="sh 추가">
+      <created>1673345191475</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673345191475</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -70,15 +162,11 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/routes/Header.svelte</url>
-          <line>40</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="이름 , 닉네임 등록시 공백 제거" />
+    <MESSAGE value="readme 수정" />
+    <MESSAGE value="base url 추가" />
+    <MESSAGE value="sh 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="sh 추가" />
   </component>
 </project>

@@ -5,24 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cf15c20-fa74-4142-b5f9-039651f3c42e" name="Changes" comment="sh 추가">
-      <change afterPath="$PROJECT_DIR$/src/lib/utils/RangeUtil.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/issue/+page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/issue/+server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/user/+page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/world/+page.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-toki.dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/front-toki.dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pushDev.sh" beforeDir="false" afterPath="$PROJECT_DIR$/pushDev.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/page/Pagination.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/page/Pagination.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/url/URL.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/url/URL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Counter.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Header.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/issue/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/issue/+page.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/user/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user/+server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/+server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user/UserTable.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/UserTable.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,22 +40,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -102,6 +87,8 @@
       <workItem from="1672468586246" duration="26000" />
       <workItem from="1672468617497" duration="30000" />
       <workItem from="1672468653754" duration="68727000" />
+      <workItem from="1673689107881" duration="66000" />
+      <workItem from="1673689178599" duration="964000" />
     </task>
     <task id="LOCAL-00001" summary="이름 , 닉네임 등록시 공백 제거">
       <created>1672480159514</created>

@@ -1,24 +1,23 @@
 <script>
     import {createEventDispatcher} from "svelte";
-
-    export let current = 0;
+    import {rangeByNumAndStep} from "../utils/RangeUtil.js";
+    export let current = 'hello world';
     export let total = 0;
-
     const dispatch = createEventDispatcher();
 
     function btnClick(page) {
         dispatch("go", {page});
     }
+
     // 서버에서는
 </script>
 
 <button on:click={()=>btnClick()}>처음으로</button>
-
-{#each Array(total) as _,page}
-    {#if page === current}
-        <button disabled style="color: red">{page + 1}</button>
+{#each rangeByNumAndStep(total) as page}
+    {#if page.toString() === (current).toString()}
+        <button disabled style="color: red">{page}</button>
     {:else}
-        <button on:click={()=>btnClick(page+1)}>{page + 1}</button>
+        <button on:click={()=>btnClick(page)}>{page}</button>
     {/if}
 {/each}
 

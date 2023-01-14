@@ -1,18 +1,18 @@
 import apiUrl from "$lib/url/URL.js";
 
 const url = apiUrl + '/user';
-export async function GET(page) {
-    let getUrl = url;
+export const GET = async (page) => {
+    let reqUrl = url;
     if (page) {
-        getUrl += `?page=${page}`;
+        reqUrl += `?page=${page}`;
     }
-    return await fetch(getUrl);
+    return await fetch(reqUrl);
 }
 
-export async function POST(name, nickName) {
+export const POST = async (name, nickName) => {
     return await fetch(url, {
         method: "POST",
-        headers: {"Content-Type": "application/json","Accept":"*/*"},
+        headers: {"Content-Type": "application/json", "Accept": "*/*"},
         body: JSON.stringify({name, nickName})
     });
 }

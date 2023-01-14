@@ -1,5 +1,5 @@
 <script>
-    export let userPromise;
+    export let userList;
 </script>
 
 <table>
@@ -7,8 +7,7 @@
     <th>name</th>
     <th>nickName</th>
     <tbody id="tBody">
-    {#await userPromise}
-    {:then userList}
+
         {#each userList as user}
             <tr>
                 <td>{user.idx}</td>
@@ -16,9 +15,6 @@
                 <td>{user.nickName}</td>
             </tr>
         {/each}
-    {:catch e}
-        <p>{e}</p>
-    {/await}
     </tbody>
 </table>
 

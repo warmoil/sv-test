@@ -1,6 +1,5 @@
 <script>
-    import apiUrl from "$lib/url/URL.js";
-
+    import apiUrl from "../../lib/url/URL.js";
     let loading = 'API 서버 통신 확인중'
     check()
     async function check() {
@@ -18,3 +17,4 @@
 </svelte:head>
 
 <h1>{loading}</h1>
+<h1>체크용 world</h1>

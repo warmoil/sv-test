@@ -1,59 +1,43 @@
 <script>
-    import Pagination from "$lib/page/Pagination.svelte";
-    import {POST} from "./+server.js";
-    import UserTable from "./UserTable.svelte";
-    import {onMount} from "svelte";
-    import apiUrl from "../../lib/url/URL.js";
-    /** @type {import('./$types').PageData} */
-    export let data;
+  import {onMount} from "svelte";
+  import Pagination from "$lib/page/Pagination.svelte";
+  import UserTable from "./UserTable.svelte";
 
+  /** @type {import("./$types").PageData} */
+  export let data;
 
-    let name = ''
-    let nickName = ''
-    let totalPage = data.resJson.totalPage
+  /** @type {import("./$types").ActionData} */
+  export let form;
 
-    let nameInput
-    let nicknameInput
-    onMount(() => nameInput.focus())
-
-
-
-    async function createUser() {
-        await POST(name, nickName)
-            .then(res => {
-                if (res.status === 201 || res.status === 200) {
-                    window.location.reload()
-                } else if (res.status === 409) {
-                    alert('이미 존재하는 닉네임입니다')
-                    nicknameInput.focus()
-                } else {
-                    alert('서버에러')
-                }
-            }).catch(e => {
-                console.log(e)
-            })
+  // onMount: alert 이 ssr 에서 동작하지 못하게 함
+  onMount(() => {
+    if (form?.message) {
+      alert(form.message);
+      form = null;
+    } else if (form?.error) {
+      alert(form.error);
+      form = null;
     }
+  });
 
-    function movePage(e) {
-        console.log('.로그내놔',e);
-        window.location.href = '/user?page='+e.detail.page
-    }
+  let totalPage = data.resJson.totalPage;
 
-    const enterPress = e => {
-        if (e.key === 'Enter') createUser()
-    }
+  function movePage(e) {
+    window.location.href = "/user?page=" + e.detail.page;
+  }
+
+  const namePattern = "\\[가-힣a-zA-Z0-9]{1,15}";
+  const nickNamePattern = "\\[가-힣a-zA-Z0-9]{1,15}";
 </script>
 
+<form action="/user" method="POST">
+    이름:<input type="text" name="name"
+              pattern={namePattern} required autofocus>
+    닉네임:<input type="text" name="nickname"
+               pattern={nickNamePattern} required>
 
-<svelte:body on:keydown={enterPress}/>
-
-
-이름:<input bind:this={nameInput} type="text" bind:value={name}>
-닉네임:<input bind:this={nicknameInput} type="text" bind:value={nickName}>
-
-<button on:click={createUser}>
-    추가
-</button>
+    <input type="submit" value="추가">
+</form>
 <br/>
-<UserTable userList= {data.resJson.results}/>
+<UserTable userList={data.resJson.results}/>
 <Pagination current={data.page} total={totalPage} on:go={movePage}/>

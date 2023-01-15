@@ -3,9 +3,9 @@ import apiUrl from "$lib/url/URL.js";
 const url = apiUrl + '/issue';
 
 
-export const GET = async page => {
-    let reqUrl = url;
-    if (page) reqUrl += `?page=${page}`;
+export const GET = async (page,siteName='warmOil') => {
+    let reqUrl = url+'?siteName='+siteName
+    if (page) reqUrl += `&page=${page}`;
     return await fetch(reqUrl);
 };
 

@@ -33,4 +33,4 @@
 
 
 <IssueTable issueList={data.resJson.results}/>
-<Pagination current={data.page} total={totalPage}  />
+<Pagination current={data.page} total={totalPage} on:go={movePage} />

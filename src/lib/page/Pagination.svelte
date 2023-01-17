@@ -1,11 +1,12 @@
 <script>
     import {createEventDispatcher} from "svelte";
     import {rangeByNumAndStep} from "../utils/RangeUtil.js";
+
     export let current = 'hello world';
     export let total = 0;
     const dispatch = createEventDispatcher();
 
-    function btnClick(page) {
+    function btnClick(page = 1) {
         dispatch("go", {page});
     }
 

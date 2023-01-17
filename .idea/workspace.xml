@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cf15c20-fa74-4142-b5f9-039651f3c42e" name="Changes" comment="sh 추가">
+    <list default="true" id="4cf15c20-fa74-4142-b5f9-039651f3c42e" name="Changes" comment="숨긴 이슈 보기 기능 추가">
+      <change afterPath="$PROJECT_DIR$/src/lib/utils/JsonUtil.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/meeting/+page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/meeting/+page.server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/meeting/+page.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/meeting/+server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/routes/meeting/MeetingTable.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/page/Pagination.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/page/Pagination.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/url/URL.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/url/URL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/issue/+page.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/issue/+page.server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/issue/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/issue/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/issue/IssueTable.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/issue/IssueTable.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/user/+page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/+page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/user/+server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/+server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/user/UserTable.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/UserTable.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +30,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="+page" />
         <option value="HTML File" />
+        <option value="+page" />
+        <option value="MeetingTable" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -26,10 +40,13 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="65e5448b-e424-42a6-83ec-4c28d66185f8" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,6 +73,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/routes/meeting" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -89,6 +111,7 @@
       <workItem from="1672468653754" duration="68727000" />
       <workItem from="1673689107881" duration="66000" />
       <workItem from="1673689178599" duration="964000" />
+      <workItem from="1673951250017" duration="5583000" />
     </task>
     <task id="LOCAL-00001" summary="이름 , 닉네임 등록시 공백 제거">
       <created>1672480159514</created>
@@ -132,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673345191475</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="숨긴 이슈 보기 기능 추가">
+      <created>1673861995994</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673861995994</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +184,7 @@
     <MESSAGE value="readme 수정" />
     <MESSAGE value="base url 추가" />
     <MESSAGE value="sh 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="sh 추가" />
+    <MESSAGE value="숨긴 이슈 보기 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="숨긴 이슈 보기 기능 추가" />
   </component>
 </project>

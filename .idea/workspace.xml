@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cf15c20-fa74-4142-b5f9-039651f3c42e" name="Changes" comment="숨긴 이슈 보기 기능 추가">
-      <change afterPath="$PROJECT_DIR$/src/lib/utils/JsonUtil.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/meeting/+page.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/meeting/+page.server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/meeting/+page.svelte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/meeting/+server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/meeting/MeetingTable.svelte" afterDir="false" />
+    <list default="true" id="4cf15c20-fa74-4142-b5f9-039651f3c42e" name="Changes" comment="issue 추가">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/page/Pagination.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/page/Pagination.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/url/URL.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/url/URL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/issue/+page.server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/issue/+page.server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/issue/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/issue/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/issue/IssueTable.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/issue/IssueTable.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user/+page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/+page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user/+server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/+server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/user/UserTable.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/user/UserTable.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +32,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="65e5448b-e424-42a6-83ec-4c28d66185f8" />
+    <option name="defaultAccountId" value="26fd2623-b7c8-46f1-b1c4-0c94b104f7a8" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="\[msd\]\[ate\]\[sav\].*" />
+      </list>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -57,22 +50,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/routes/meeting" />
@@ -162,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673861995994</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="issue 추가">
+      <created>1674033630989</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674033630989</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +185,7 @@
     <MESSAGE value="base url 추가" />
     <MESSAGE value="sh 추가" />
     <MESSAGE value="숨긴 이슈 보기 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="숨긴 이슈 보기 기능 추가" />
+    <MESSAGE value="issue 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="issue 추가" />
   </component>
 </project>

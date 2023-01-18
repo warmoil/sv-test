@@ -28,7 +28,7 @@
     내용:<textarea name='content'></textarea>
     <input type="hidden" name="siteName" value={siteName}>
     <input type="hidden" name="target" value={target}>
-    <input type="submit" 전송>
+    <input type="submit" value="추가">
 </form>
 
 

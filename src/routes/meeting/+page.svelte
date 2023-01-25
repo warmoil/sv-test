@@ -29,10 +29,12 @@
     내용:<textarea name='content' placeholder="내용을적으세요"></textarea><br/>
     총인원:<input type="number" name="maxMember"> <br/>
     마감일:<input type="datetime-local" name="closingDateTime" min={nowDate} bind:value={closingDate}><br/>
-    모임시간:<input type="datetime-local" name="meetingDateTime" min={closingDate} value=now><br/>
+    모임시간:<input type="datetime-local" name="meetingDateTime" min={closingDate} ><br/>
     개최자:<input type="text" name="owner">
     <input type="hidden" name="siteName" value="warmOil">
     <input type="submit" value="보내기">
+    {nowDate}
+    {closingDate}
 </form>
 
 

@@ -18,7 +18,7 @@ const getMeetingList = async (page) =>{
         if(!res.ok) throw new Error('모임 로딩 실패')
         return res.json()
     }).catch(e=>{
-        alert('서버에러')
         console.log(e)
+        throw e
     })
 }

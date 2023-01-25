@@ -16,7 +16,9 @@
     <tbody>
     {#each meetingList as meeting}
         <tr>
-            <td>{meeting.idx}</td>
+            <td><a href="/meeting/{meeting.idx}" >{meeting.idx}</a></td>
+<!--            <td>{meeting.idx}</td>-->
+
             <td>{meeting.title}</td>
             <td>{meeting.place}</td>
             <td>{meeting.maxMember}</td>

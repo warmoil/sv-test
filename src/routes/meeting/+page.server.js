@@ -11,8 +11,8 @@ export const actions = {
     default: async ({request}) => {
         const formData = await request.formData()
         let obj = formDataToJson(formData)
-        obj.meetingDateTime =obj.meetingDateTime.replace('T',' ')
-        obj.closingDateTime =obj.closingDateTime.replace('T',' ')
+        obj.meetingDateTime = obj.meetingDateTime.replace('T', ' ')
+        obj.closingDateTime = obj.closingDateTime.replace('T', ' ')
         console.log(obj.meetingDateTime)
         console.log(obj.closingDateTime)
         return await fetch(url, {
@@ -21,7 +21,7 @@ export const actions = {
             body: JSON.stringify(obj)
         }).then(res => {
             if (!(res.status === 201 || res.status === 200)) {
-                console.log('res.status',res.status)
+                console.log('res.status', res.status)
                 return {
                     message: "작성실패"
                 }

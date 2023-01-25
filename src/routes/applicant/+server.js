@@ -1,10 +1,10 @@
 import apiUrl from "$lib/url/URL.js";
 
 
-const url = apiUrl + '/meeting'
+const url = apiUrl + '/applicant'
 
-export const GET = async (page, size = 5) => {
-    let reqUrl = url + '?page=' + page
+export const GET = async (meetingIdx,page, size = 5) => {
+    let reqUrl = url + '?meetingIdx='+meetingIdx+'&'+'page='+ page
     return await fetch(reqUrl)
 }
 

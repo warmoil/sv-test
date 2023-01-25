@@ -16,7 +16,7 @@
     <th>사이트이름</th>
     <tbody>
         <tr>
-            <td>{detail.idx}/td>
+            <td>{detail.idx}</td>
             <td>{detail.title}</td>
             <td>{detail.content}</td>
             <td>{detail.place}</td>
@@ -27,10 +27,12 @@
             <td>{detail.owner}</td>
             <td>{detail.siteName}</td>
         </tr>
-
     </tbody>
 </table>
 
+<div>
+    <a href='javascript:history.back()'> 뒤로 </a>
+</div>
 
 <style>
     table, th, td {

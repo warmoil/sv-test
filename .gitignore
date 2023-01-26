@@ -83,5 +83,4 @@ $RECYCLE.BIN/
 build/
 build.sh
 cron_test.py
-*.env
 db_migration.sh

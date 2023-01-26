@@ -14,6 +14,7 @@
     <th>개최자</th>
     <th>사이트이름</th>
     <th>신청하기</th>
+    <th>신청목록보기</th>
     <tbody>
     {#each meetingList as meeting}
         <tr>
@@ -27,6 +28,7 @@
             <td>{meeting.owner}</td>
             <td>{meeting.siteName}</td>
             <td><button on:click ={showApplytPrompt(meeting.idx,'warmOil')}>신청하기</button></td>
+            <td><a href={'/applicant?meetingIdx='+meeting.idx}>목록관리</a> </td>
         </tr>
     {/each}
 

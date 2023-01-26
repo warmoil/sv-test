@@ -21,7 +21,7 @@
         window.location.href = "/meeting?page=" + e.detail.page;
     }
     let nowDate = new Date();
-    let closingDate
+    let closingDate =''
 </script>
 <form action="/meeting" method="POST">
     장소:<input type="text" name="place" autofocus><br/>

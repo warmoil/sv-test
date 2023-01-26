@@ -1,4 +1,6 @@
 <script>
+    import {modifyStatus} from "./Applicant.js";
+
     export let applicantList
 </script>
 
@@ -17,7 +19,13 @@
             <td>{applicant.siteName}</td>
             <td>{applicant.userID}</td>
             <td>{applicant.status}</td>
-            <td>수락/거부</td>
+            <td>
+                {#if applicant.status === 'ACCEPT'}
+                    <button on:click={modifyStatus(applicant.idx,'REJECT')}>거부</button>
+                {:else }
+                    <button on:click={modifyStatus(applicant.idx,'ACCEPT')}>수락</button>
+                {/if}
+            </td>
         </tr>
     {/each}
 

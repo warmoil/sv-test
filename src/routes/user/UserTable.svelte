@@ -20,10 +20,12 @@
 
 
 <style>
-    table {
-        width: 50%;
+    table, th, td {
         border: 1px solid black;
         border-collapse: collapse;
         text-align: center;
+    }
+    table{
+        width: 100%;
     }
 </style>

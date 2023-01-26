@@ -1,10 +1,8 @@
 import {GET} from "./+server.js";
 
-let totalPage = 0
-let loadingTxt = '로딩중입니다.'
 
 /** @type {import('./$types').PageLoad} */
-export async function load({url}) {
+export const  load = async ({url}) => {
     const page = url.searchParams.get('page') || 1;
     const size = url.searchParams.get('size') || 5;
     const resJson = await getUserList(page)

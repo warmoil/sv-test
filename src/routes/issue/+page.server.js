@@ -1,4 +1,5 @@
 import apiUrl from "../../lib/url/URL";
+import {formDataToJson} from "$lib/utils/JsonUtil.js";
 
 const url = apiUrl + "/issue";
 
@@ -8,11 +9,7 @@ const url = apiUrl + "/issue";
 export const actions = {
     default: async ({request})=>{
         const formData = await request.formData()
-        let obj = {}
-        for (let key of formData.keys()) {
-            console.log(key,formData.get(key))
-            obj[key] = formData.get(key)
-        }
+        let obj = formDataToJson(formData)
         obj['isSecret'] = !!formData.get('isSecret')
         console.log('obj',obj)
         return await fetch(url , {

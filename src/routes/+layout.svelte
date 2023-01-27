@@ -10,6 +10,9 @@
   email.set(data.result?.email);
 </script>
 
+<svelte:head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</svelte:head>
 {#if data.result?.email}
     {data.result?.email} 님 안녕하세요.
     <div>로그인 완료</div>

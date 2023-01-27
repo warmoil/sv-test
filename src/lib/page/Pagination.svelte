@@ -16,7 +16,7 @@
 <button on:click={()=>btnClick()}>처음으로</button>
 {#each rangeByNumAndStep(total) as page}
     {#if page.toString() === (current).toString()}
-        <button disabled style="color: red">{page}</button>
+        <button disabled class:btn-primary={true}>{page}</button>
     {:else}
         <button on:click={()=>btnClick(page)}>{page}</button>
     {/if}

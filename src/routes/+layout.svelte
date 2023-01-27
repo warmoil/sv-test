@@ -5,11 +5,10 @@
 
   /** @type {import("./$types").PageData} */
   export let data;
-  onMount(() => {
-    console.log(data);
-  })
+
   email.set(data.result?.email);
   Token.set(data.token)
+  console.log(JSON.parse(atob(data?.token.split('.')[1])));
 </script>
 
 <svelte:head>

@@ -1,13 +1,15 @@
 <script>
-  import {email} from "$lib/store/member.js";
-  import {onMount} from "svelte";
-  import {Token} from "$lib/store/token.js";
+    import {email} from "$lib/store/member.js";
+    import {onMount} from "svelte";
+    import {Token} from "$lib/store/token.js";
 
-  /** @type {import("./$types").PageData} */
-  export let data;
-  email.set(data.result?.email);
-  Token.set(data.token)
-  console.log(JSON.parse(atob(data?.token.split('.')[1])));
+    /** @type {import("./$types").PageData} */
+    export let data;
+    /** @type {import('./$types').ActionData} */
+    export let form;
+    email.set(data.result?.email);
+    Token.set(data.token)
+
 </script>
 
 <svelte:head>
@@ -15,7 +17,9 @@
 </svelte:head>
 {#if data.result?.email}
     {data.result?.email} 님 안녕하세요.
-    <div>로그인 완료</div>
+    <form method="POST" action="login?/logout">
+        <input type="submit" class="btn btn-link" value="로그아웃">
+    </form>
 {:else}
     <div>로그인 필요</div>
 {/if}

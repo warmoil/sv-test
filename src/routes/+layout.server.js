@@ -7,7 +7,7 @@ export async function load({route, cookies}) {
   const token = cookies.get("token");
   let res = await fetch(url + "/my/info", {headers: {token}});
 
-  if (res.ok) return await res.json();
+  if (res.ok) return { ...(await res.json()), token };
   if (route.id === "/login") return {};
 
   cookies.set("token", null, {

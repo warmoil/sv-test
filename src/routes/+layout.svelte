@@ -1,13 +1,13 @@
 <script>
   import {email} from "$lib/store/member.js";
   import {onMount} from "svelte";
+  import {Token} from "$lib/store/token.js";
 
   /** @type {import("./$types").PageData} */
   export let data;
-  onMount(() => {
-    console.log(data);
-  })
   email.set(data.result?.email);
+  Token.set(data.token)
+  console.log(JSON.parse(atob(data?.token.split('.')[1])));
 </script>
 
 <svelte:head>

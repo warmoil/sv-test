@@ -1,4 +1,6 @@
 import apiUrl from "$lib/url/URL.js";
+import { get } from 'svelte/store'
+import {Token} from "$lib/store/token.js";
 
 const url = apiUrl + '/issue';
 
@@ -6,7 +8,11 @@ const url = apiUrl + '/issue';
 export const GET = async (page,siteName='warmOil') => {
     let reqUrl = url+'?siteName='+siteName
     if (page) reqUrl += `&page=${page}`;
-    return await fetch(reqUrl);
+    return await fetch(reqUrl,{
+        headers:{
+            'token':get(Token)
+        }
+    });
 };
 
 export const POST = async (issue) => {

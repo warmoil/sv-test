@@ -1,5 +1,7 @@
 import apiUrl from "../../lib/url/URL";
 import {formDataToJson} from "$lib/utils/JsonUtil.js";
+import {get} from "svelte/store";
+import {Token} from "$lib/store/token.js";
 
 const url = apiUrl + "/issue";
 
@@ -14,7 +16,7 @@ export const actions = {
         console.log('obj',obj)
         return await fetch(url , {
             method: "POST",
-            headers: {"Content-Type": "application/json", "Accept": "*/*"},
+            headers: {"Content-Type": "application/json", "Accept": "*/*",'token': get(Token)},
             body:JSON.stringify(obj)
         }).then(res => {
             if (res.status === 201 || res.status === 200) {

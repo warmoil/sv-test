@@ -3,18 +3,12 @@ import {get} from 'svelte/store'
 import {Token} from "$lib/store/token.js";
 
 const url = apiUrl + '/issue';
-
-
-export const GET = async (page, siteName = 'warmOil') => {
-    console.log('isuue GET')
-    let reqUrl = url + '?siteName=' + siteName
+const token = get(Token)
+export const GET = async (page) => {
+    let reqUrl = url + '?siteName=' + 'warmOil'
     if (page) reqUrl += `&page=${page}`;
-    const token = get(Token)
-    return await fetch(reqUrl, {
-        headers: {
-            'token': token
-        }
-    });
+    console.log('issue url '+reqUrl)
+    return await fetch(reqUrl, {headers: {token}});
 };
 
 export const POST = async (issue) => {

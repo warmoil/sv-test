@@ -3,9 +3,10 @@ import {get} from 'svelte/store'
 import {Token} from "$lib/store/token.js";
 
 const url = apiUrl + '/user';
+const token = get(Token)
 export const GET = async (page) => {
     let reqUrl = url;
     if (page) reqUrl += `?page=${page}`;
-    const token = get(Token)
+
     return await fetch(reqUrl, {headers: {token}});
 }

@@ -1,5 +1,4 @@
 <script>
-    import {showApplytPrompt} from "../applicant/Applicant.js";
     export let meetingList
 </script>
 
@@ -27,7 +26,13 @@
             <td>{meeting.closingDateTime}</td>
             <td>{meeting.owner}</td>
             <td>{meeting.siteName}</td>
-            <td><button on:click ={showApplytPrompt(meeting.idx,'warmOil')}>신청하기</button></td>
+            <td>
+                <form method="POST" action="?/applyMeeting">
+                    <input type="hidden" name="siteName" value="warmOil">
+                    <input type="hidden" name="meetingIdx" value={meeting.idx}>
+                    <input type="submit" value="신청하기">
+                </form>
+<!--            <button on:click ={applyMeeting(meeting.idx,'warmOil')}>신청하기</button></td>-->
             <td><a href={'/applicant?meetingIdx='+meeting.idx}>목록관리</a> </td>
         </tr>
     {/each}

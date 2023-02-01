@@ -1,14 +1,12 @@
 <script>
     import {email} from "$lib/store/member.js";
     import {Token} from "$lib/store/token.js";
+    import {onMount} from "svelte";
 
     /** @type {import("./$types").PageData} */
     export let data;
     /** @type {import('./$types').ActionData} */
     export let form;
-    email.set(data.result?.email);
-    Token.set(data.token)
-
 </script>
 
 <svelte:head>

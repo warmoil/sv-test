@@ -12,8 +12,6 @@
         <tr>
 
                 <td> {issue.idx}</td>
-
-                <td> {issue.idx}</td>
                 <td>{issue.owner}</td>
                 <td>
                     {#if issue.isSecret}

@@ -26,6 +26,7 @@ export const actions = {
         }
 
         const json = await res.json();
+        console.log('json'+JSON.stringify(json))
         const {token} = json;
         cookies.set("token", token, {
             path: "/",
@@ -33,19 +34,25 @@ export const actions = {
             sameSite: "strict",
             maxAge: 60 * 60 * 24 * 30
         });
-
+        cookies.set('email',email, {
+            path: "/",
+            httpOnly: true,
+            sameSite: "strict",
+            maxAge: 60 * 60 * 24 * 30
+        });
         return {success: true};
     },
 
     logout: async ({cookies, request}) => {
-        console.log('?')
-        const token = cookies.get('token')
-        cookies.set("token", token, {
-            path: "/",
-            httpOnly: true,
-            sameSite: "strict",
-            maxAge: 0
-        });
+        await cookies.delete('token')
+        request.cookies
+        // const token = cookies.get('token')
+        // cookies.set("token", token, {
+        //     path: "/",
+        //     httpOnly: true,
+        //     sameSite: "strict",
+        //     maxAge: 0
+        // });
         throw redirect(307,'/')
     },
 };

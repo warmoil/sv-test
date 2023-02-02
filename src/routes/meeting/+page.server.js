@@ -1,49 +1,51 @@
 import apiUrl from "$lib/url/URL.js";
 import {formDataToJson} from "$lib/utils/JsonUtil.js";
-import {Token} from "../../lib/store/token.js";
-import {get} from "svelte/store";
 
 
 const url = apiUrl + '/meeting'
-const token = get(Token)
 /** @type {import("./$types").Actions} */
 
 
 export const actions = {
-    create: async ({request}) => {
+    create: async ({request, cookies}) => {
         const formData = await request.formData()
         let obj = formDataToJson(formData)
         obj.meetingDateTime = obj.meetingDateTime.replace('T', ' ')
         obj.closingDateTime = obj.closingDateTime.replace('T', ' ')
-        console.log(obj.meetingDateTime)
-        console.log(obj.closingDateTime)
         return await fetch(url, {
             method: "POST",
-            headers: {"Content-Type": "application/json", "Accept": "*/*", token},
+            headers: {"Content-Type": "application/json", "Accept": "*/*", token: cookies.get('token')},
             body: JSON.stringify(obj)
         }).then(res => {
             if (!(res.status === 201 || res.status === 200)) {
-                console.log('res.status', res.status)
-                return {
-                    message: "작성실패"
-                }
+                return res.json().then(json => {
+                    return {message: json.message}
+                })
             }
         }).catch(e => {
             return {
-                error: e
+                message: e
             }
         })
     },
-    applyMeeting: async ({request}) => {
+    applyMeeting: async ({request, cookies}) => {
         console.log('apply!')
         const data = await request.formData()
         const siteName = data.get('siteName')
         const meetingIdx = data.get('meetingIdx')
-        const ret = await fetch(apiUrl + '/applicant', {
+        return await fetch(apiUrl + '/applicant', {
             method: 'POST',
-            headers: {"Content-Type": "application/json", "Accept": "*/*", token},
+            headers: {"Content-Type": "application/json", "Accept": "*/*", token: cookies.get('token')},
             body: JSON.stringify({siteName, meetingIdx})
-        }).then(res => res.json())
-        return ret
+        }).then(res => {
+            if (!(res.status === 200 || res.status === 201)) {
+                return res.json().then(json => {
+                    return {message: json.message}
+                })
+            }
+        }).catch(e => {
+            console.log('e?', e)
+            return {error: e}
+        })
     }
 }

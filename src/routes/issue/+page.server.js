@@ -13,7 +13,9 @@ export const load = async ({url, cookies}) => {
     const size = url.searchParams.get('size') || 5;
     const resJson = await GET(page, token)
         .then(res => {
-            if (!res.ok) throw new Error('이슈 불러오기 실패')
+            if (!res.ok) {
+                return {message: '이슈 불러오기 실패'}
+            }
             return res.json()
         }).catch(e => {
             console.log(e)

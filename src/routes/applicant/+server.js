@@ -8,10 +8,10 @@ export const GET = async (meetingIdx,page, size = 5) => {
     return await fetch(reqUrl)
 }
 
-export const POST = async (meeting) =>{
-    return await fetch(url,{
-        method:"POST",
-        headers: {"Content-Type": "application/json", "Accept": "*/*"},
-        body:JSON.stringify(meeting)
-    })
-}
+// export const POST = async (meeting) =>{
+//     return await fetch(url,{
+//         method:"POST",
+//         headers: {"Content-Type": "application/json", "Accept": "*/*"},
+//         body:JSON.stringify(meeting)
+//     })
+// }

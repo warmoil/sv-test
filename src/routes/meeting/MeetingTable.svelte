@@ -1,5 +1,14 @@
 <script>
+    import {formDataToJson} from "../../lib/utils/JsonUtil.js";
+
     export let meetingList
+    const handleSubmit = async e =>{
+        const res = await fetch(e.target.action, {
+            method: e.target.method,
+            body: JSON.stringify(formDataToJson(new FormData(e.target)))
+        });
+      
+    }
 </script>
 
 <table>
@@ -27,7 +36,8 @@
             <td>{meeting.owner}</td>
             <td>{meeting.siteName}</td>
             <td>
-                <form method="POST" action="?/applyMeeting">
+                <form on:submit|preventDefault={handleSubmit} method="POST" action="?/applyMeeting">
+<!--                <form method="POST" action="?/applyMeeting">-->
                     <input type="hidden" name="siteName" value="warmOil">
                     <input type="hidden" name="meetingIdx" value={meeting.idx}>
                     <input type="submit" value="신청하기">

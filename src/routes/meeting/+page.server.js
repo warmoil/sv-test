@@ -33,6 +33,7 @@ export const actions = {
         const data = await request.formData()
         const siteName = data.get('siteName')
         const meetingIdx = data.get('meetingIdx')
+        console.log('모를레이요')
         return await fetch(apiUrl + '/applicant', {
             method: 'POST',
             headers: {"Content-Type": "application/json", "Accept": "*/*", token: cookies.get('token')},

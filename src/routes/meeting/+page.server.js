@@ -43,6 +43,7 @@ export const actions = {
                     return {message: json.message}
                 })
             }
+            return {message:'모임 참석에 신청하였습니다'}
         }).catch(e => {
             console.log('e?', e)
             return {error: e}

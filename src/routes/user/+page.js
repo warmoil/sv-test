@@ -3,7 +3,6 @@ import {GET} from "./+server.js";
 
 /** @type {import('./$types').PageLoad} */
 export const  load = async ({url}) => {
-    console.log('user load')
     const page = url.searchParams.get('page') || 1;
     const size = url.searchParams.get('size') || 5;
     const resJson = await getUserList(page)

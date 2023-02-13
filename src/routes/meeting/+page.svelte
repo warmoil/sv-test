@@ -10,10 +10,12 @@
 
     onMount(() => {
         if (form?.message) {
-            alert(form.message);
+            // alert(form.message);
+            alert(form.message)
             form = null;
         } else if (form?.error) {
-            alert(form.error);
+            // alert(form.error);
+            console.log('error'+form.error)
             form = null;
         }
     });
@@ -37,5 +39,5 @@
 </form>
 
 
-<MeetingTable meetingList={data.resJson.results}/>
+<MeetingTable meetingList={data.resJson.results} email={data.result.email}/>
 <Pagination current={data.page} total={data.resJson.totalPage} on:go={movePage}/>

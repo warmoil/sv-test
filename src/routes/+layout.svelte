@@ -1,12 +1,18 @@
 <script>
-    import {email} from "$lib/store/member.js";
-    import {Token} from "$lib/store/token.js";
-    import {onMount} from "svelte";
-
+    import {Email} from "$lib/store/member.js";
     /** @type {import("./$types").PageData} */
     export let data;
     /** @type {import('./$types').ActionData} */
     export let form;
+
+    const logout = async () => {
+        await fetch('/login/logout', {
+            method: 'POST'
+        }).then(res => res.json())
+            .then(json => {
+                window.location = '/'
+            })
+    }
 </script>
 
 <svelte:head>
@@ -14,9 +20,10 @@
 </svelte:head>
 {#if data.result?.email}
     {data.result?.email} 님 안녕하세요.
-    <form method="POST" action="login?/logout">
-        <input type="submit" class="btn btn-link" value="로그아웃">
-    </form>
+<!--    {#if Email}-->
+<!--    {Email} 님 안녕하세요.-->
+<!--        <input type="submit" class="btn btn-link" value="로그아웃">-->
+        <button class="btn btn-link" on:click={logout}>로그아웃</button>
 {:else}
     <div>로그인 필요</div>
 {/if}

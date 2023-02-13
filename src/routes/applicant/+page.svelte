@@ -9,10 +9,12 @@
 
     onMount(() => {
         if (form?.message) {
-            alert(form.message);
+            // alert(form.message);
+            console.log(form.message)
             form = null;
         } else if (form?.error) {
-            alert(form.error);
+            // alert(form.error);
+            console.log(form.error)
             form = null;
         }
     });

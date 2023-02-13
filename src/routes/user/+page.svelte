@@ -12,10 +12,12 @@
     // onMount: alert 이 ssr 에서 동작하지 못하게 함
     onMount(() => {
         if (form?.message) {
-            alert(form.message);
+            // alert(form.message);
+            console.log(form.message)
             form = null;
         } else if (form?.error) {
-            alert(form.error);
+            // alert(form.error);
+            alert(form.error)
             form = null;
         }
     });
@@ -32,7 +34,7 @@
 
 <form action="/user" method="POST">
     이름:<input type="text" name="name"
-              pattern={namePattern} required autofocus>
+              pattern={namePattern} required>
     닉네임:<input type="text" name="nickname"
                pattern={nickNamePattern} required>
 

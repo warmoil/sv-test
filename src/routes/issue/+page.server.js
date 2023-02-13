@@ -1,14 +1,15 @@
 import apiUrl from "../../lib/url/URL";
 import {formDataToJson} from "$lib/utils/JsonUtil.js";
 import {GET} from "./+server.js";
-
+import {Token} from "../../lib/store/token.js";
+import {get} from "svelte/store";
 const url = apiUrl + "/issue";
 
 /** @type {import("./$types").Actions} */
 
-export const load = async ({url, cookies}) => {
+export const load = async ({url}) => {
     console.log('issue load')
-    const token = await cookies.get('token')
+    const token = get(Token)
     const page = url.searchParams.get('page') || 1;
     const size = url.searchParams.get('size') || 5;
     const resJson = await GET(page, token)
@@ -20,6 +21,7 @@ export const load = async ({url, cookies}) => {
         }).catch(e => {
             console.log(e)
         })
+    console.log('res::'+JSON.stringify(resJson))
     return {
         page,
         size,
@@ -30,14 +32,14 @@ export const load = async ({url, cookies}) => {
 
 // form action 에 관한 메소드들
 export const actions = {
-    default: async ({request, cookies}) => {
+    default: async ({request}) => {
         const formData = await request.formData()
         let obj = formDataToJson(formData)
         obj['isSecret'] = !!formData.get('isSecret')
         console.log('obj', obj)
         return await fetch(url, {
             method: "POST",
-            headers: {"Content-Type": "application/json", "Accept": "*/*", 'token': cookies.get('token')},
+            headers: {"Content-Type": "application/json", "Accept": "*/*", 'token': get(Token)},
             body: JSON.stringify(obj)
         }).then(res => {
             if (res.status === 201 || res.status === 200) {

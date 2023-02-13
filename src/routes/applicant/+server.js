@@ -3,9 +3,13 @@ import apiUrl from "$lib/url/URL.js";
 
 const url = apiUrl + '/applicant'
 
-export const GET = async (meetingIdx,page, size = 5) => {
-    let reqUrl = url + '?meetingIdx='+meetingIdx+'&'+'page='+ page
-    return await fetch(reqUrl)
+export const GET = async (meetingIdx, page, token, size = 5) => {
+    let reqUrl = url + '?meetingIdx=' + meetingIdx + '&' + 'page=' + page
+    return await fetch(reqUrl, {
+        headers: {
+            token
+        }
+    })
 }
 
 // export const POST = async (meeting) =>{

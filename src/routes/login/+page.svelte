@@ -1,31 +1,26 @@
 <script>
-  import LoginText from "$lib/textInput/LoginText.svelte";
-  import {email} from "$lib/store/member.js";
-  import {onMount} from "svelte";
+    import LoginText from "$lib/textInput/LoginText.svelte";
+    import {Email} from "$lib/store/member.js";
 
-  let id, pw;
-  let emailText;
-  email.subscribe(x => emailText = x);
+    let id, pw;
+    /** @type {import("./$types").ActionData} */
+    export let form;
 
-  /** @type {import("./$types").ActionData} */
-  export let form;
-
-  onMount(() => {
-    if (form?.success === true) window.location = "/";
-    else {
-      console.log(form);
+    const login = async () => {
+        const json = await fetch('/login', {
+            method: 'POST',
+            body: JSON.stringify({email: id, password: pw})
+        }).then(res => res.json())
+        window.location = '/'
     }
-  });
 </script>
 
 로그인 페이지
 
-{#if emailText}
-    {emailText} 님 안녕하세요
+{#if $Email}
+    {$Email} 님 안녕하세요
 {:else}
-    <form method="POST" action="?/login">
-        <LoginText bind:id={id} bind:pw={pw}/>
-        <input type="submit" value="login 하기">
-    </form>
+    <LoginText bind:id={id} bind:pw={pw}/>
+    <button on:click={login}>로그인</button>
 {/if}
 

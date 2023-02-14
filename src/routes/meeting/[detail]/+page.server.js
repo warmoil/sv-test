@@ -1,13 +1,13 @@
-/** @type {import('./$types').PageLoad} */
 import {GET} from "./+server.js";
-import {json} from "@sveltejs/kit";
 
+/** @type {import('./$types').PageLoad} */
 export const load = async ({params}) => {
     const detail = await getDetail(params.detail)
+    console.log('detail page load')
     console.log('detaiL?:' + JSON.stringify(detail))
-    return json({
-        detail: detail
-    })
+    if(detail) {
+        return {detail}
+    }
 }
 
 const getDetail = async (idx) => {

@@ -2,8 +2,6 @@
     import {Email} from "$lib/store/member.js";
     /** @type {import("./$types").PageData} */
     export let data;
-    /** @type {import('./$types').ActionData} */
-    export let form;
 
     const logout = async () => {
         await fetch('/login/logout', {

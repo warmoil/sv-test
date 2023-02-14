@@ -3,10 +3,6 @@
 
     export let meetingList
     export let email
-    /** @type {import("./$types").PageData} */
-    export let data;
-    /** @type {import("./$types").ActionData} */
-    export let form;
 
     const handleSubmit = async e => {
         const res = await fetch('?/applyMeeting', {

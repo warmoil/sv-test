@@ -3,11 +3,9 @@
     import {Email} from "$lib/store/member.js";
 
     let id, pw;
-    /** @type {import("./$types").ActionData} */
-    export let form;
 
     const login = async () => {
-        const json = await fetch('/login', {
+        await fetch('/login', {
             method: 'POST',
             body: JSON.stringify({email: id, password: pw})
         }).then(res => res.json())

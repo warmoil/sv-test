@@ -16,23 +16,27 @@
     <th>개최자</th>
     <th>사이트이름</th>
     <tbody>
-    <tr>
-        <td>{detail.idx}</td>
-        <td>{detail.title}</td>
-        <td>{detail.content}</td>
-        <td>{detail.place}</td>
-        <td>{detail.maxMember}</td>
-        <td>{detail.nowEntryNo}</td>
-        <td>{detail.meetingDateTime}</td>
-        <td>{detail.closingDateTime}</td>
-        <td>{detail.owner}</td>
-        <td>{detail.siteName}</td>
-    </tr>
+    {#if detail}
+        <tr>
+            <td>{detail.idx}</td>
+            <td>{detail.title}</td>
+            <td>{detail.content}</td>
+            <td>{detail.place}</td>
+            <td>{detail.maxMember}</td>
+            <td>{detail.nowEntryNo}</td>
+            <td>{detail.meetingDateTime}</td>
+            <td>{detail.closingDateTime}</td>
+            <td>{detail.owner}</td>
+            <td>{detail.siteName}</td>
+        </tr>
+    {:else }
+        값이 없습니다.
+    {/if}
     </tbody>
 </table>
 
 <div>
-<!--    <a href="javascript:history.back()">뒤로</a>-->
+    <!--    <a href="javascript:history.back()">뒤로</a>-->
 </div>
 
 <style>

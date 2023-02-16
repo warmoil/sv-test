@@ -1,15 +1,13 @@
-import apiUrl from "../../lib/url/URL";
+import apiUrl from "$lib/url/URL";
 import {formDataToJson} from "$lib/utils/JsonUtil.js";
 import {GET} from "./+server.js";
-import {Token} from "../../lib/store/token.js";
-import {get} from "svelte/store";
+
 const url = apiUrl + "/issue";
 
-/** @type {import("./$types").Actions} */
-
-export const load = async ({url}) => {
+/** @type {import('./$types').PageServerLoad} */
+export const load = async ({url,locals}) => {
     console.log('issue load')
-    const token = get(Token)
+    const token = locals.token
     const page = url.searchParams.get('page') || 1;
     const size = url.searchParams.get('size') || 5;
     const resJson = await GET(page, token)
@@ -31,15 +29,16 @@ export const load = async ({url}) => {
 
 
 // form action 에 관한 메소드들
+/** @type {import("./$types").Actions} */
 export const actions = {
-    default: async ({request}) => {
+    default: async ({request,locals}) => {
         const formData = await request.formData()
         let obj = formDataToJson(formData)
         obj['isSecret'] = !!formData.get('isSecret')
         console.log('obj', obj)
         return await fetch(url, {
             method: "POST",
-            headers: {"Content-Type": "application/json", "Accept": "*/*", 'token': get(Token)},
+            headers: {"Content-Type": "application/json", "Accept": "*/*", 'token': locals.token},
             body: JSON.stringify(obj)
         }).then(res => {
             if (res.status === 201 || res.status === 200) {

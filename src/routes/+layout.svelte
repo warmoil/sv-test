@@ -1,5 +1,6 @@
 <script>
-    import {Email} from "$lib/store/member.js";
+    import {onMount} from "svelte";
+
     /** @type {import("./$types").PageData} */
     export let data;
 
@@ -11,13 +12,24 @@
                 window.location = '/'
             })
     }
+    let p = 0;
+    let visible = false;
+    onMount(() => {
+        visible = true;
+        function next() {
+            p += 0.1;
+            const remaining = 1 - p;
+            if (remaining > 0.15) setTimeout(next, 500 / remaining);
+        }
+        setTimeout(next, 250);
+    });
 </script>
 
 <svelte:head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </svelte:head>
-{#if data.result?.email}
-    {data.result?.email} 님 안녕하세요.
+{#if data?.email}
+    {data?.email} 님 안녕하세요.
 <!--    {#if Email}-->
 <!--    {Email} 님 안녕하세요.-->
 <!--        <input type="submit" class="btn btn-link" value="로그아웃">-->

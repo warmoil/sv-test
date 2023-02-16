@@ -1,9 +1,6 @@
 import apiUrl from "$lib/url/URL.js";
-import {Token} from "../../lib/store/token.js";
-import {get} from "svelte/store";
 
 
-const token = get(Token)
 // export const applyMeeting = async (meetingIdx, siteName = 'warmOil') => {
 //     return await fetch(apiUrl + '/applicant', {
 //         method: 'POST',

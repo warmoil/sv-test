@@ -1,13 +1,23 @@
 import {redirect} from "@sveltejs/kit";
-import {Token} from "$lib/store/token.js";
-import {Email} from "$lib/store/member.js";
+
 const url = import.meta.env.VITE_API_URL;
 
 /** @type {import('./$types').RequestHandler} */
-export const POST = async () => {
+export const POST = async ({cookies}) => {
     console.log('-----------------logout')
     // cookies.delete('token')
-    Email.set('')
-    Token.set('')
+    await cookies.set("token", null, {
+        path: "/",
+        httpOnly: false,
+        sameSite: "strict",
+        maxAge: 0
+    });
+    await cookies.set("email", null, {
+        path: "/",
+        httpOnly: false,
+        sameSite: "strict",
+        maxAge: 0
+    });
+
     throw redirect(307, '/')
 };

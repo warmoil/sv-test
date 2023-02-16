@@ -1,13 +1,11 @@
 import apiUrl from "$lib/url/URL.js";
 import {GET} from "./+server.js";
-import {get} from "svelte/store";
-import {Token} from "../../lib/store/token.js";
 
 const url = apiUrl + "/user";
 
 /** @type {import("./$types").Actions} */
-export const  load = async ({url}) => {
-    const token = get(Token)
+export const  load = async ({url,locals}) => {
+    const token = locals.token
     const page = url.searchParams.get('page') || 1;
     const size = url.searchParams.get('size') || 5;
     const resJson = await getUserList(page,token)

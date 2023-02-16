@@ -2,27 +2,24 @@ import apiUrl from "$lib/url/URL.js";
 import {formDataToJson} from "$lib/utils/JsonUtil.js";
 import {GET} from "./+server.js";
 import {redirect} from "@sveltejs/kit";
-import {get} from "svelte/store";
-import {Token} from "../../lib/store/token.js";
-import {Email} from "../../lib/store/member.js";
 
 const url = apiUrl + '/meeting'
 /** @type {import("./$types").Actions} */
 
-export const  load = async ({url}) => {
+export const  load = async ({url,locals}) => {
     const page = url.searchParams.get('page') || 1;
     const size = url.searchParams.get('size') || 5;
-    const resJson = await getMeetingList(page)
+    const resJson = await getMeetingList(page,locals.token)
     if(page){
         return {
-            page,size,resJson,email:get(Email)
+            page,size,resJson,email:locals.email
         }
     }
 }
 
 
-const getMeetingList = async (page) =>{
-    return await GET(page).then(res=>{
+const getMeetingList = async (page,token) =>{
+    return await GET(page,token).then(res=>{
         if(!res.ok) throw new Error('모임 로딩 실패')
         return res.json()
     }).catch(e=>{
@@ -31,7 +28,7 @@ const getMeetingList = async (page) =>{
     })
 }
 export const actions = {
-    create: async ({request,}) => {
+    create: async ({request,locals}) => {
         console.log('?')
         const formData = await request.formData()
         let obj = formDataToJson(formData)
@@ -39,7 +36,7 @@ export const actions = {
         obj.closingDateTime = obj.closingDateTime.replace('T', ' ')
         return await fetch(url, {
             method: "POST",
-            headers: {"Content-Type": "application/json", "Accept": "*/*", token: get(Token)},
+            headers: {"Content-Type": "application/json", "Accept": "*/*", token: locals.token},
             body: JSON.stringify(obj)
         }).then(res => {
             if (!(res.status === 201 || res.status === 200)) {
@@ -53,7 +50,7 @@ export const actions = {
             }
         })
     },
-    applyMeeting: async ({request,url}) => {
+    applyMeeting: async ({request,url,locals}) => {
         console.log('apply!')
         console.log(url)
         const data = await request.formData()
@@ -62,7 +59,7 @@ export const actions = {
         console.log('모를레이요')
         return await fetch(apiUrl + '/applicant', {
             method: 'POST',
-            headers: {"Content-Type": "application/json", "Accept": "*/*", token: get(Token)},
+            headers: {"Content-Type": "application/json", "Accept": "*/*", token: locals.token},
             body: JSON.stringify({siteName, meetingIdx})
         }).then(res => {
             if (!(res.status === 200 || res.status === 201)) {

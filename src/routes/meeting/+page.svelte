@@ -39,5 +39,5 @@
 </form>
 
 
-<MeetingTable meetingList={data.resJson.results} email={data.result.email}/>
+<MeetingTable meetingList={data.resJson.results} email={data.email}/>
 <Pagination current={data.page} total={data.resJson.totalPage} on:go={movePage}/>

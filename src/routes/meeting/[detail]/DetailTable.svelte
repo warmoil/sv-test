@@ -1,5 +1,6 @@
 <script>
     export let detail
+
 </script>
 
 <table>
@@ -15,6 +16,7 @@
     <th>개최자</th>
     <th>사이트이름</th>
     <tbody>
+    {#if detail}
         <tr>
             <td>{detail.idx}</td>
             <td>{detail.title}</td>
@@ -27,11 +29,14 @@
             <td>{detail.owner}</td>
             <td>{detail.siteName}</td>
         </tr>
+    {:else }
+        값이 없습니다.
+    {/if}
     </tbody>
 </table>
 
 <div>
-    <a href='javascript:history.back()'> 뒤로 </a>
+    <!--    <a href="javascript:history.back()">뒤로</a>-->
 </div>
 
 <style>
@@ -40,7 +45,8 @@
         border-collapse: collapse;
         text-align: center;
     }
-    table{
+
+    table {
         width: 100%;
     }
 </style>

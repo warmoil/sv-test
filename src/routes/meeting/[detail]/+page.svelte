@@ -1,10 +1,10 @@
 <script>
-    import {onMount} from "svelte";
     import DetailTable from "./DetailTable.svelte";
 
     /** @type {import('./$types').PageData} */
     export let data;
 
+    console.log(data)
 </script>
 
 

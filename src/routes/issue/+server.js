@@ -2,17 +2,8 @@ import apiUrl from "$lib/url/URL.js";
 
 const url = apiUrl + '/issue';
 
-
-export const GET = async (page,siteName='warmOil') => {
-    let reqUrl = url+'?siteName='+siteName
+export const GET = async (page,token) => {
+    let reqUrl = url + '?siteName=' + 'warmOil'
     if (page) reqUrl += `&page=${page}`;
-    return await fetch(reqUrl);
+    return await fetch(reqUrl, {headers: token});
 };
-
-export const POST = async (issue) => {
-    return await fetch(url, {
-        method: "POST",
-        headers: {"Content-Type": "application/json", "Accept": "*/*"},
-        body: JSON.stringify({issue})
-    })
-}

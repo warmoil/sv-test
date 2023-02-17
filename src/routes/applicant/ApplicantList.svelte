@@ -1,7 +1,20 @@
 <script>
-    import {modifyStatus} from "./Applicant.js";
+    import {onMount} from "svelte";
 
     export let applicantList
+    /** @type {import("./$types").ActionData} */
+    export let form;
+
+    // onMount: alert 이 ssr 에서 동작하지 못하게 함
+    onMount(() => {
+        if (form?.message) {
+            alert(form.message);
+            form = null;
+        } else if (form?.error) {
+            alert(form.error);
+            form = null;
+        }
+    });
 </script>
 
 
@@ -20,11 +33,19 @@
             <td>{applicant.userID}</td>
             <td>{applicant.status}</td>
             <td>
+                <form action=""  method="POST">
+<!--                <form action='/applicant?/modifyStatus' method="POST">-->
+                    <input type="hidden" name="idx" value={applicant.idx}>
                 {#if applicant.status === 'ACCEPT'}
-                    <button on:click={modifyStatus(applicant.idx,'REJECT')}>거부</button>
+                    <input type="hidden" name="status" value="REJECT">
+                    <input type="submit" value="거절">
+<!--                    <button on:click={modifyStatus(applicant.idx,'REJECT')}>거부</button>-->
                 {:else }
-                    <button on:click={modifyStatus(applicant.idx,'ACCEPT')}>수락</button>
+                    <input type="hidden" name="status" value="ACCEPT">
+                    <input type="submit" value="수락">
+<!--                    <button on:click={modifyStatus(applicant.idx,'ACCEPT')}>수락</button>-->
                 {/if}
+                </form>
             </td>
         </tr>
     {/each}
